@@ -1,0 +1,58 @@
+
+# ==========================================
+# SCINTIA-S4 - Git Ignore
+# ==========================================
+
+# Datos científicos
+data/*
+
+# Conservar estructura de directorios
+!data/**/
+!data/**/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Modelos entrenados y escaladores
+*.keras
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.joblib
+
+# Checkpoints
+checkpoints/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Configuración local y credenciales
+.env
+.env.*
+!.env.example
+credentials.json
+token.json
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Archivos temporales
+*.tmp
+*.bak
+*.old
+*.log
