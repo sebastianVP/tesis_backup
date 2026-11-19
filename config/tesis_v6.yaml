@@ -1,0 +1,75 @@
+nombre: tesis_v6
+rutas:
+  base: /home/soporte/Documents/TESIS_BACKUP_14102026/scintia-s4
+  s4_reconstruido: data/processed/df_max_s4_reconstruido.csv
+  multivariable: data/raw/DF_FINAL_JICAMARCA_integrado_14102026.csv
+  indices_omni: null
+  experimentos: experiments
+  reportes: reports
+periodo:
+  inicio: '2025-01-26'
+  fin: '2026-07-21'
+datos:
+  target: S4
+  umbral_evento: 0.6
+  sampling_min: 1
+  flags_reconstruccion:
+  - Fix0
+  - Fix1
+  - Fix3
+  - Fix4
+  - Fix_Pico
+  ffill_precursores_min: 0
+  recausalizar_locales: false
+split:
+  ratios:
+  - 0.7
+  - 0.15
+  - 0.15
+  min_eventos:
+  - 1
+  - 1
+  - 1
+  min_dias_activos_test: 1
+  hora_corte_ut: 12
+  fin_train: '2025-12-09'
+  fin_validacion: '2026-03-01'
+ventanas:
+  lookback: 60
+  horizon: 20
+escalador: minmax
+entrenamiento:
+  batch_size: 256
+  epochs: 30
+  epochs_grid: 10
+  learning_rate: 0.001
+  patience_es: 4
+  patience_lr: 3
+  semillas:
+  - 42
+  - 123
+  - 7
+perdida:
+  tipo: wfl
+  alpha: 1.5
+  beta: 10.0
+  penal_subestimacion: 2.0
+  ratio_subestimacion: 0.8
+modelo:
+  tipo: apilado
+  units1: 64
+  units2: 64
+  dropout: 0.3
+evaluacion:
+  n_boot: 1000
+  umbrales_alerta:
+  - 0.3
+  - 0.35
+  - 0.4
+  - 0.45
+  - 0.5
+  - 0.55
+  - 0.6
+  - 0.65
+  - 0.7
+  - 0.75
